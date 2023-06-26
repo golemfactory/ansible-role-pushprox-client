@@ -1,0 +1,8 @@
+- name: Restart pushprox client
+  systemd:
+    scope: user
+    daemon_reload: yes
+    name: "{{ pushprox_unit_name }}"
+    enabled: yes
+    state: restarted
+  when: (pushprox_client_start | default({})) is not changed

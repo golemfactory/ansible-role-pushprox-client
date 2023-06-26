@@ -1,0 +1,19 @@
+- setup:
+
+- name: Stop pushprox client
+  systemd:
+    scope: user
+    name: "{{ pushprox_unit_name }}"
+    enabled: no
+    state: stopped
+  ignore_errors: yes  # go on if unit doesn't exist
+
+- name: Delete systemd unit
+  file:
+    dest: "{{ ansible_user_dir }}/.config/systemd/user/{{ pushprox_unit_name }}.service"
+    state: absent
+
+- name: Reload systemd
+  systemd:
+    scope: user
+    daemon_reload: yes

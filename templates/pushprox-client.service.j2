@@ -1,0 +1,14 @@
+[Unit]
+Description=PushProx client
+After=network.target
+
+[Service]
+Type=simple
+ExecStart={{ pushprox_releases_dir }}/PushProx-{{ pushprox_version }}.linux-amd64/pushprox-client \
+    --fqdn="{{ pushprox_fqdn }}" \
+    --proxy-url="{{ pushprox_proxy_url }}" \
+    --metrics-addr=""
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

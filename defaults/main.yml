@@ -1,0 +1,5 @@
+pushprox_version: 0.1.0
+pushprox_release_url: "https://github.com/prometheus-community/PushProx/releases/download/v{{ pushprox_version }}/PushProx-{{ pushprox_version }}.linux-amd64.tar.gz"
+
+pushprox_proxy_url: http://pushprox-proxy:8080
+pushprox_fqdn: "{{ ansible_default_ipv4.address }}"

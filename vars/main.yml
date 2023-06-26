@@ -1,0 +1,2 @@
+pushprox_releases_dir: "{{ ansible_user_dir }}/releases"
+pushprox_unit_name: "pushprox-client"
